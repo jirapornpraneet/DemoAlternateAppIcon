@@ -61,7 +61,7 @@ final class NotificationManager: NSObject, ObservableObject {
     }
 
     private func handleIconChange(from notification: UNNotification) {
-        guard let iconName = notification.request.content.userInfo["iconName"] as? String,
+        guard let iconName = notification.request.content.userInfo[Constants.userInfoIconKey] as? String,
               let icon = AppIcon(rawValue: iconName) else { return }
 
         Task { @MainActor in
